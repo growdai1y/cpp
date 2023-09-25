@@ -146,7 +146,7 @@ TEST(rxcpp, to_icon_line) {
   ASSERT_EQ(line.icon2nd, "");
 }
 
-TEST(rxcpp, icon_map) {
+TEST(rxcpp, build_icon_map) {
   auto rokuSource =
       IconLine{"Roku", "source_icon_roku.png", "", IconLine::Type::Source};
   auto rokuLauncher = IconLine{"Roku", "launcher_f_roku.png",
