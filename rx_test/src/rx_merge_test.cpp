@@ -174,7 +174,7 @@ auto build_path_map(const string& dirpath) {
   return pathMap;
 }
 
-TEST(rxcpp, build_absolute_filepaths) {
+TEST(rxcpp, build_path_map) {
   auto pathMap = build_path_map("../data/source_icon/Source/Icon");
   auto itr = pathMap.find("source_icon_roku.png");
 
@@ -182,10 +182,10 @@ TEST(rxcpp, build_absolute_filepaths) {
             "../data/source_icon/Source/Icon/source_icon_roku.png");
 }
 
-auto read_icon_lines(const string& icondir, const string& logofile) {
+auto read_icon_lines(const string& icondir, const string& iconfile) {
   auto pathMap = build_path_map(icondir);
   auto lines =
-      read_lines(logofile)
+      read_lines(iconfile)
           .skip(1)
           .map(to_icon_line)
           .map(bind(icon_line_with_fullpath, placeholders::_1, pathMap));
